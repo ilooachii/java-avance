@@ -13,7 +13,7 @@ public class PizzaComposable extends Pizza {
         "Pizza de " + createur.getPrenom() + " " + createur.getNom(), 
         new ArrayList<Ingredient>());
         this.createur = createur;
-        this.date = date.now();
+        this.date = LocalDateTime.now();
     }
 
     public Client getCreateur() {
