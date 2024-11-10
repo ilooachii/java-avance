@@ -47,7 +47,7 @@ public abstract class Pizza {
     }
 
     public double calculerPrix() {
-        double prixTotal = 0.0;
+        double prixTotal = 0;
 
         for (Ingredient ingredient : ingredients) {
             prixTotal+=ingredient.getPrix();
