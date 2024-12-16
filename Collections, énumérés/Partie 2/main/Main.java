@@ -52,9 +52,34 @@ public class Main {
 		Livre livre = new Livre();
 		livre.ajouterPlat(plat);
 		livre.ajouterPlat(new Plat("Croquettes au fromage", 4, Difficulte.XXX,
-		Cout.$$, Plat.Type.ENTREE));
+				Cout.$$, Plat.Type.ENTREE));
 		System.out.println(livre);
 		livre.supprimerPlat(new Plat("Toasts aux champignons", 5, Difficulte.XXX, Cout.$$$, Plat.Type.ENTREE));
 		System.out.println(livre);
+
+		Ingredient ing = new Ingredient("Blanc de poulet");
+		plat.ajouterIngredient(ing, 400, Unite.GRAMME);
+		ing = new Ingredient("Céleri");
+		plat.ajouterIngredient(ing, 200, Unite.GRAMME);
+		ing = new Ingredient("Carottes");
+		plat.ajouterIngredient(ing, 2);
+		ing = new Ingredient("jus de citron");
+		plat.ajouterIngredient(ing, 10, Unite.MILLILITRE);
+		ing = new Ingredient("Sel");
+		plat.ajouterIngredient(ing, 1, Unite.PINCEE);
+		ing = new Ingredient("Crème fraiche");
+		plat.ajouterIngredient(ing, 10, Unite.CENTILITRE);
+
+		// Modifier un ingrédient
+		plat.modifierIngredient(new Ingredient("Blanc de poulet"), 600, Unite.GRAMME);
+
+		// Supprimer un ingrédient
+		plat.supprimerIngredient(new Ingredient("jus de citron"));
+
+		// Trouver un ingrédient et afficher sa quantité
+		IngredientQuantifie ingQuantifie = plat.trouverIngredientQuantifie(new Ingredient("Blanc de poulet"));
+		System.out.println("Quantité de blanc de poulet nécessaire : " + ingQuantifie.getQuantite() + " "
+				+ ingQuantifie.getUnite() + "\n");
+
 	}
 }
